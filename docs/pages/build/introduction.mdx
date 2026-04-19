@@ -1,4 +1,81 @@
----
+-APPLICATION "MATHÉPHABÈTE"
+Rôle de l'IA : Tu es un développeur expert en React Native et en cryptographie. Ton objectif est de créer une application mobile nommée Mathéphabète.
+1. Logique Fondamentale (Le Clavier de Référence) : L'application repose sur une grille de 10 colonnes et 3 lignes :
+
+L1 : [A, Z, E, R, T, Y, U, I, O, P]
+L2 : [Q, S, D, F, G, H, J, K, L, M]
+L3 : [Shift, W, X, C, V, B, N, ',', ', ', Backspace] (Note: La barre d'espace est séparée).
+2. Système de Chiffrement Dynamique (Rotation des Ordres) : Chaque lettre est convertie en sa coordonnée sous la forme ColonneLigne
+ (ex: B=73
+). L'exposant change selon l'index du mot dans la phrase :
+
+Mot 1 (Ordre 0) : Coordonnées réelles (L1→1,L2→2,L3→3).
+Mot 2 (Ordre 1) : Permutation (L1→2,L2→3,L3→1).
+Mot 3 (Ordre 2) : Permutation (L1→3,L2→1,L3→2).
+Règle : Le cycle recommence tous les 3 mots. L'application doit détecter le caractère "Espace" pour changer d'Ordre.
+3. Format de Sortie (Le "Code") : Chaque phrase (début du premier mot de la phrase)doit être encapsulé dans une fonction mathématique : f(x)=[Coordonne
+ˊ
+es]. Exemple : "Bonjour" devient f(x)=[73
+91
+83
+72
+91
+71
+41
+].
+4. Table de Substitution des Symboles et Chiffres : Remplace automatiquement les entrées suivantes :
+
+Ponctuation : Durée / temps : ∫debut matin
+fin soir
+​
+Union / Groupe : Π
+Secret / intime :  ​
+Énumération : ∑
+Crochets ([ ]) : [ ]
+Pourcentage (%) : (mod n)
+Égal (=) : =
+Esperluette (&) : ∧
+Espace : ln(x)
+Apostrophe (') : f′
+ (de
+ˊ
+rive
+ˊ
+e)
+Point (.) : □ (fin)
+Interrogation (?) : =
+?
+Exclamation (!) : ∞
+Parenthèses ( ) : ⟨ ⟩
+Accolades ({ }) : ∁
+Astérisque (*) : ×
+_ (Underscore) : inf
+€ (Euro) : ∈
+Arobase (@) : 0
+Dollar ($) : ∮
+Guillemets (" ") : { }
+Deux-points (:) : ⇒
+Virgule (,) : ∪
+Tilde (~) : ≁
+Hashtag (#) : Δ
+Plus (+) : +
+- tiret : sup
+Point-virgule (;) : ⊥
+Chiffres "Vrais" : 0→ln(x0
+), 1→L0
+, 2→Z/X, 3→E/C, 4→R/V, 5→T/B, 6→Y/N, 7→U, 8→i, 9→o, 10→P.
+5. Fonctionnalités de l'Interface Utilisateur (UI) :
+
+Mode Encodeur : Un champ de texte clair qui se convertit en temps réel en code Mathéphabète.
+Mode Décodeur : Un champ pour coller le code f(x) et retrouver le texte original (en appliquant la logique inverse des rotations).
+Design : Look "Calculatrice Scientifique" ou "Terminal de programmation" (fond noir, texte vert ou bleu néon).
+Bouton Copier : Pour envoyer le code rapidement sur WhatsApp.
+6. Contrainte Technique : Gère correctement les espaces consécutifs et assure-toi que le compteur de mots se réinitialise après chaque point final (□)
+7. Fonctionnalité Supplémentaire :
+Ajouter un bouton "Copier le message" pour coller le texte chiffré dans WhatsApp ou d'autres messageries.
+
+Ajouter un mode "Déchiffrement" où l'on colle un texte codé pour retrouver le texte clair en suivant la même logique inverse.
+--
 title: EAS Build
 sidebar_title: Introduction
 description: EAS Build is a hosted service for building app binaries for your Expo and React Native projects.
